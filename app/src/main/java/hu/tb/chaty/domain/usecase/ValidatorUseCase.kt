@@ -1,6 +1,6 @@
 package hu.tb.chaty.domain.usecase
 
-import android.util.Patterns
+import androidx.core.util.PatternsCompat
 
 class ValidatorUseCase {
 
@@ -11,7 +11,7 @@ class ValidatorUseCase {
                 errorMessage = "The email can't be blank"
             )
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if(!PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()) {
             return ValidationResult(
                 successful = false,
                 errorMessage = "That's not a valid email"
