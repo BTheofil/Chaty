@@ -16,7 +16,8 @@ fun NavigationMaster() {
     NavHost(navController = navController, startDestination = mainScreenRoute) {
         mainScreenRoute(
             navigateTo = { navController.handleNavigation(it) })
-        registerScreenRoute()
+        registerScreenRoute(
+            navigateTo = { navController.handleNavigation(it) })
     }
 }
 
@@ -24,5 +25,6 @@ fun NavController.handleNavigation(route: Routes) {
     when (route) {
         Routes.MAIN -> TODO()
         Routes.REGISTER -> navigateToRegister()
+        Routes.HOME -> TODO()
     }
 }
