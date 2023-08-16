@@ -4,7 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import hu.tb.chaty.ui.home.navigation.homeScreenRoute
+import hu.tb.chaty.ui.home.navigation.navigateToHome
 import hu.tb.chaty.ui.main.navigation.mainScreenRoute
+import hu.tb.chaty.ui.main.navigation.navigateToMain
 import hu.tb.chaty.ui.register.navigation.navigateToRegister
 import hu.tb.chaty.ui.register.navigation.registerScreenRoute
 
@@ -18,13 +21,16 @@ fun NavigationMaster() {
             navigateTo = { navController.handleNavigation(it) })
         registerScreenRoute(
             navigateTo = { navController.handleNavigation(it) })
+        homeScreenRoute(
+            navigateTo = { navController.handleNavigation(it) }
+        )
     }
 }
 
 fun NavController.handleNavigation(route: Routes) {
     when (route) {
-        Routes.MAIN -> TODO()
+        Routes.MAIN -> navigateToMain()
         Routes.REGISTER -> navigateToRegister()
-        Routes.HOME -> TODO()
+        Routes.HOME -> navigateToHome()
     }
 }

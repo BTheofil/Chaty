@@ -24,6 +24,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import hu.tb.chaty.R
+import hu.tb.chaty.common.CustomAlertDialog
 import hu.tb.chaty.ui.navigation.Routes
 
 @Composable
@@ -33,12 +34,28 @@ fun RegisterScreen(
 ) {
     val state by vm.state.collectAsState()
 
+    var openDialog by remember { mutableStateOf(false) }
+
     LaunchedEffect(key1 = LocalContext.current) {
         vm.news.collect { news ->
             when (news) {
                 is RegisterViewModel.RegisterNews.NavigateToHome -> navigateTo(Routes.HOME)
+                RegisterViewModel.RegisterNews.ExceptionHappened -> {
+                    openDialog = true
+                }
             }
         }
+    }
+
+
+    if (openDialog) {
+        CustomAlertDialog(
+            title = "Error happened",
+            text = "Can not create user",
+            buttonTitle = "Okay",
+            confirmButton = { openDialog = false },
+            onDismissListener = { openDialog = false }
+        )
     }
 
     RegisterScreenContent(
