@@ -24,7 +24,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import hu.tb.chaty.R
-import hu.tb.chaty.common.CustomAlertDialog
+import hu.tb.chaty.ui.common.CustomAlertDialog
 import hu.tb.chaty.ui.navigation.Routes
 
 @Composable

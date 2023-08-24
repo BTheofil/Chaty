@@ -1,4 +1,4 @@
-package hu.tb.chaty.common
+package hu.tb.chaty.ui.common
 
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
