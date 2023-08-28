@@ -24,7 +24,7 @@ fun MainScreen(
             Text(text = "Register new user")
         }
         Button(onClick = {
-
+            navigateTo(Routes.LOGIN)
         }) {
             Text(text = "Log in")
         }

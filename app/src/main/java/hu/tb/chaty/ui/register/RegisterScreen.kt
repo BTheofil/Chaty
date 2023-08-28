@@ -62,7 +62,7 @@ fun RegisterScreen(
         state,
         onEmailChange = { vm.onEvent(RegisterViewModel.RegisterEvent.OnEmailChange(it)) },
         onPasswordChange = { vm.onEvent(RegisterViewModel.RegisterEvent.OnPasswordChange(it)) },
-        onRegisterButtonChange = { vm.onEvent(RegisterViewModel.RegisterEvent.OnRegisterClick) }
+        onRegisterButtonClick = { vm.onEvent(RegisterViewModel.RegisterEvent.OnRegisterClick) }
     )
 }
 
@@ -72,7 +72,7 @@ private fun RegisterScreenContent(
     state: RegisterViewModel.RegisterState,
     onEmailChange: (text: String) -> Unit,
     onPasswordChange: (text: String) -> Unit,
-    onRegisterButtonChange: () -> Unit
+    onRegisterButtonClick: () -> Unit
 ) {
     var isPasswordVisible by remember {
         mutableStateOf(false)
@@ -111,7 +111,7 @@ private fun RegisterScreenContent(
             maxLines = 1,
             isError = !state.isPasswordValid
         )
-        OutlinedButton(onClick = onRegisterButtonChange) {
+        OutlinedButton(onClick = onRegisterButtonClick) {
             Text(text = "Register")
         }
     }
